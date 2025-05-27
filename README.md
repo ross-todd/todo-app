@@ -46,3 +46,25 @@ This app includes media queries to ensure it displays well on smaller screens:
     width: 100%;
   }
 }
+
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ross-todd/todo-app.git
+   cd todo-app
+
+2. Install dependencies:
+   npm install
+
+3. Start the app:
+   npm start
+
+4. Open in your browser
+   http://localhost:3000
+
+5. License
+   This project is licensed under the MIT License.
+
+
