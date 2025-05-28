@@ -147,6 +147,14 @@
     body.dark-mode .modal-content .modal-title {
       color: black !important;
     }
+
+    /* Mic button styling */
+    #micBtn {
+      width: 45px;
+      padding: 0 6px;
+      font-size: 1.2rem;
+      user-select: none;
+    }
   </style>
 </head>
 <body>
@@ -167,7 +175,8 @@
 
     <!-- Todo Input Form -->
     <form action="/todos" method="POST" class="mb-4 d-flex justify-content-center" style="max-width: 1000px; margin-left: auto; margin-right: auto;">
-      <input type="text" name="text" class="form-control me-2" placeholder="Enter new todo" required maxlength="35" />
+      <input type="text" id="todoInput" name="text" class="form-control me-2" placeholder="Enter new todo" required maxlength="35" />
+      <button type="button" id="micBtn" class="btn btn-outline-secondary me-2" title="Speak your todo">🎤</button>
       <button class="btn btn-primary fw-bold" type="submit">Add</button>
     </form>
 
@@ -253,6 +262,57 @@
           toggleBtn.textContent = "Dark Mode";
         }
       });
+
+      // Voice to text setup
+      const micBtn = document.getElementById("micBtn");
+      const todoInput = document.getElementById("todoInput");
+      let recognition;
+      let listening = false;
+
+      if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        recognition = new SpeechRecognition();
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        recognition.onstart = () => {
+          listening = true;
+          micBtn.textContent = "🎙️ Listening...";
+          micBtn.classList.add("btn-danger");
+          micBtn.classList.remove("btn-outline-secondary");
+        };
+
+        recognition.onend = () => {
+          listening = false;
+          micBtn.textContent = "🎤";
+          micBtn.classList.remove("btn-danger");
+          micBtn.classList.add("btn-outline-secondary");
+        };
+
+        recognition.onerror = (event) => {
+          listening = false;
+          micBtn.textContent = "🎤";
+          micBtn.classList.remove("btn-danger");
+          micBtn.classList.add("btn-outline-secondary");
+          alert("Speech recognition error: " + event.error);
+        };
+
+        recognition.onresult = (event) => {
+          const transcript = event.results[0][0].transcript;
+          todoInput.value = transcript;
+        };
+
+        micBtn.addEventListener("click", () => {
+          if (listening) {
+            recognition.stop();
+          } else {
+            recognition.start();
+          }
+        });
+      } else {
+        micBtn.style.display = "none"; // Hide button if speech API not supported
+      }
     });
   </script>
 </body>
