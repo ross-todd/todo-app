@@ -57,9 +57,10 @@
     }
 
     body.dark-mode .btn-warning {
-      background-color: #ffb74d;
-      border-color: #ffb74d;
-      color: #000;
+      /* Remove original warning style in dark mode */
+      background-color: transparent;
+      border-color: transparent;
+      color: inherit;
     }
 
     body.dark-mode .btn-secondary {
@@ -80,7 +81,7 @@
     #darkModeToggle {
       position: absolute;
       top: 20px;    /* Space from top */
-      left: 15;
+      left: 15px;
       font-weight: bold;
       font-size: 1rem; /* Match Bootstrap default button font size */
       padding: 0.375rem 0.75rem;
@@ -111,6 +112,13 @@
     body.dark-mode input[name="text"]::placeholder {
       color: #ddd;
       opacity: 1; /* ensure full opacity */
+    }
+
+    /* ** NEW: Make Logout button same style as Dark mode button in dark mode ** */
+    body.dark-mode #logoutForm button {
+      background-color: #555;
+      border-color: #555;
+      color: #eee;
     }
   </style>
 </head>
