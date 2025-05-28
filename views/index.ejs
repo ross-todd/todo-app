@@ -21,17 +21,24 @@
         width: 100%;
       }
     }
+    h1.display-2 {
+      margin-top: 60px; /* Adjust this value to move the title further down */
+    }
   </style>
 </head>
 <body>
   <div class="container py-4">
-
+    
     <!-- Header and Logout Button -->
-    <div class="position-relative mb-4" style="max-width: 1000px; margin: 0 auto;">
+    <div class="position-relative" style="max-width: 1000px; margin: 0 auto;">
       <form action="/logout" method="POST" class="position-absolute top-0 end-0">
         <button type="submit" class="btn btn-warning text-white fw-bold">Logout</button>
       </form>
-      <h1 class="display-2 fw-bold text-center">Todo List</h1>
+    </div>
+
+    <!-- Todo List Title -->
+    <div class="text-center mb-4">
+      <h1 class="display-2 fw-bold">Todo List</h1>
     </div>
 
     <!-- Todo Form -->
