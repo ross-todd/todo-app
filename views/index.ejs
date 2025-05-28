@@ -25,6 +25,15 @@
       margin-top: 80px; /* Adjust this value to move the title further down */
     }
 
+    /* Light mode (default) */
+    .text-decoration-line-through {
+      color: black;
+      text-decoration-line: line-through;
+      text-decoration-thickness: 3px;      /* thicker line */
+      text-decoration-color: black;        /* black line */
+      font-weight: normal;
+    }
+
     /* Dark mode overrides */
     body.dark-mode {
       background-color: #121212;
@@ -32,9 +41,8 @@
     }
 
     body.dark-mode h1.display-2 {
-      color: #aaa; /* pure white */
-      /* or a softer white like #eee if you want it less harsh */
-}
+      color: #aaa; /* softer white/grey */
+    }
 
     body.dark-mode .container {
       background-color: #121212;
@@ -51,8 +59,16 @@
       border-color: #444;
     }
 
+    /* Completed todo text and line-through styling in dark mode */
+    body.dark-mode .list-group-item .text-decoration-line-through {
+      color: white !important;                /* keep text white */
+      text-decoration-thickness: 3px;         /* thicker line */
+      text-decoration-color: white !important; /* white line */
+      font-weight: normal;
+    }
+
     /* Specifically target the "No todos yet!" text to be white in dark mode */
-    body.dark-mode .list-group-item .text-decoration-line-through.text-muted {
+    body.dark-mode .list-group-item.text-center.text-muted {
       color: white !important;
     }  
 
@@ -119,7 +135,7 @@
       opacity: 1; /* ensure full opacity */
     }
 
-    /* ** NEW: Make Logout button same style as Dark mode button in dark mode ** */
+    /* Make Logout button same style as Dark mode button in dark mode */
     body.dark-mode #logoutForm button {
       background-color: #555;
       border-color: #555;
