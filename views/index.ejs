@@ -25,7 +25,13 @@
 </head>
 <body>
   <div class="container py-4">
-    <h1 class="display-2 fw-bold mb-4 text-center">Todo List</h1>
+    <!-- Updated header with logout -->
+    <div class="d-flex justify-content-between align-items-center mb-4" style="max-width: 1000px; margin: 0 auto;">
+      <h1 class="display-2 fw-bold text-center">Todo List</h1>
+      <form action="/logout" method="POST">
+        <button type="submit" class="btn btn-warning text-white">Logout</button>
+      </form>
+    </div>
 
     <form action="/todos" method="POST" class="mb-4 d-flex justify-content-center" style="max-width: 1000px; margin-left: auto; margin-right: auto;">
       <input type="text" name="text" class="form-control me-2" placeholder="Enter new todo" required maxlength="35" style="border-color: #333;" />
