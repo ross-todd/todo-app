@@ -1,5 +1,6 @@
 const Todo = require('../models/todoModel');
 
+// List all todos for the logged-in user
 exports.listTodos = (req, res) => {
   if (!req.session.userId) {
     return res.redirect('/login');
@@ -14,6 +15,7 @@ exports.listTodos = (req, res) => {
   });
 };
 
+// Add a new todo for the logged-in user
 exports.addTodo = (req, res) => {
   const text = req.body.text;
   if (!req.session.userId) return res.redirect('/login');
@@ -30,6 +32,7 @@ exports.addTodo = (req, res) => {
   });
 };
 
+// Mark a todo as complete for the logged-in user
 exports.completeTodo = (req, res) => {
   if (!req.session.userId) return res.redirect('/login');
 
@@ -43,6 +46,7 @@ exports.completeTodo = (req, res) => {
   });
 };
 
+// Delete a todo for the logged-in user
 exports.deleteTodo = (req, res) => {
   if (!req.session.userId) return res.redirect('/login');
 
@@ -55,4 +59,3 @@ exports.deleteTodo = (req, res) => {
     res.redirect('/');
   });
 };
-

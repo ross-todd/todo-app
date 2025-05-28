@@ -1,10 +1,12 @@
 const Todo = require('../models/todoModel');
 const bcrypt = require('bcryptjs');
 
+// Render registration page
 exports.showRegister = (req, res) => {
   res.render('register', { error: null });
 };
 
+// Handle user registration
 exports.register = (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
@@ -22,10 +24,12 @@ exports.register = (req, res) => {
   });
 };
 
+// Render login page
 exports.showLogin = (req, res) => {
   res.render('login', { error: null });
 };
 
+// Handle user login
 exports.login = (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
@@ -46,7 +50,7 @@ exports.login = (req, res) => {
             return res.render('login', { error: 'Invalid username or password' });
         }
 
-        // Successful login
+        // Successful login: set session and redirect
         req.session.userId = user.id;
         req.session.username = user.username;
         res.redirect('/');
@@ -55,6 +59,7 @@ exports.login = (req, res) => {
   });
 };
 
+// Handle user logout
 exports.logout = (req, res) => {
   req.session.destroy(() => {
     res.redirect('/login');
