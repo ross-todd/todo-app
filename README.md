@@ -6,6 +6,7 @@ A simple, responsive Todo List web application built with **HTML**, **Bootstrap*
 
 ## Features
 
+- Login and Register funstions (username = username, password = password)
 - Add new tasks  
 - Mark tasks as complete  
 - Delete tasks  
