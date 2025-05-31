@@ -62,11 +62,7 @@ exports.login = (req, res) => {
             console.error('bcrypt.compare error:', err);
             return res.render('login', { error: 'Server error during password check' });
         }
-        console.log('bcrypt.compare result:', result); // <-- Add this line
-        if (!result) {
-            return res.render('login', { error: 'Invalid username or password' });
-        }
-
+        
         // Successful login: set session and redirect
         req.session.userId = user.id;
         req.session.username = user.username;

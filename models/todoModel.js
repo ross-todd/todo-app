@@ -48,9 +48,7 @@ module.exports = {
         function (err) {
           if (err) {
             console.error('DB Insert User error:', err);
-          } else {
-            console.log(`User created with id: ${this.lastID}`);
-          }
+          } else 
           callback(err, this ? this.lastID : null);
         }
       );
@@ -62,9 +60,7 @@ module.exports = {
     db.get('SELECT * FROM users WHERE username = ?', [username], (err, row) => {
       if (err) {
         console.error('DB Find User error:', err);
-      } else {
-        console.log('User fetched:', row);
-      }
+      } 
       callback(err, row);
     });
   },
