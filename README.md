@@ -65,7 +65,8 @@ This app includes media queries to ensure it displays well on smaller screens:
 4. Open in your browser
    http://localhost:3000
 
-5. Click on register and create username and password   
+5. Click on register and create username and password
+   username must be at least 8 chars long, and password must be at least 8 chars long and contain a capital letter and a special character
 
 6. License
    This project is licensed under the MIT License.
