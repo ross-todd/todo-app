@@ -6,7 +6,7 @@ A simple, responsive Todo List web application built with **HTML**, **Bootstrap*
 
 ## Features
 
-- Login and Register funstions (username = username, password = password)
+- Login and Register funstions
 - Add new tasks  
 - Mark tasks as complete  
 - Delete tasks  
@@ -65,7 +65,9 @@ This app includes media queries to ensure it displays well on smaller screens:
 4. Open in your browser
    http://localhost:3000
 
-5. License
+5. Click on register and create username and password   
+
+6. License
    This project is licensed under the MIT License.
 
 
